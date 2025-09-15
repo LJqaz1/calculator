@@ -160,7 +160,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test.manifest")
 
     // 静态分析工具
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.4")
