@@ -1,0 +1,78 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Code Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Run Android Lint
+      run: ./gradlew lint
+      
+    - name: Upload lint reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: lint-reports
+        path: |
+          app/build/reports/lint-results*.html
+          app/build/reports/lint-results*.xml
+          
+    - name: Run Detekt (Static Analysis)
+      run: ./gradlew detekt
+      continue-on-error: true
+      
+    - name: Upload Detekt reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: detekt-reports
+        path: app/build/reports/detekt/
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'

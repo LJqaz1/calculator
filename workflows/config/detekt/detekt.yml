@@ -1,0 +1,28 @@
+# Detekt配置文件
+build:
+  maxIssues: 0
+
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers: [ -1, 0, 1, 2, 100 ]
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+  FunctionNaming:
+    active: true
+    functionPattern: '[a-z][a-zA-Z0-9]*'
+
+complexity:
+  ComplexMethod:
+    active: true
+    threshold: 15
+  LongMethod:
+    active: true
+    threshold: 60
+
+potential-bugs:
+  UnsafeCall:
+    active: true
+  UnreachableCode:
+    active: true
