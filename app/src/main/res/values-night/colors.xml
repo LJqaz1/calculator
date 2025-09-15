@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night Theme Colors -->
+    <color name="calculator_background">@color/dark_background</color>
+    <color name="display_background">@color/dark_surface</color>
+    <color name="display_text_color">@color/dark_on_surface</color>
+    <color name="process_text_color">@color/dark_process_text</color>
+
+    <color name="number_button">@color/number_button_dark</color>
+    <color name="function_button">@color/function_button_dark</color>
+</resources>

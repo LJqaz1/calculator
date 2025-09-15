@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calculator_background"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 表示部分 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/display_background"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 計算過程表示 -->
+        <TextView
+            android:id="@+id/tvProcess"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="start"
+            android:fontFamily="monospace"
+            android:gravity="end|bottom"
+            android:maxLines="2"
+            android:textColor="@color/process_text_color"
+            android:textSize="16sp" />
+
+        <!-- メイン表示 -->
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:autoSizeMaxTextSize="48sp"
+            android:autoSizeMinTextSize="24sp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="monospace"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:text="0"
+            android:textColor="@color/display_text_color"
+            android:textSize="42sp" />
+    </LinearLayout>
+
+    <!-- ボタン群 -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="6"
+        android:useDefaultMargins="false">
+
+        <!-- 1行目: クリア、バックスペース、±、÷ -->
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/function_button"
+            android:elevation="2dp"
+            android:text="AC"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnBackspace"
+            style="@style/ButtonStyle.Function"
+            android:text="⌫" />
+
+        <Button
+            android:id="@+id/btnPlusMinus"
+            style="@style/ButtonStyle.Function"
+            android:text="+/-" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="@style/ButtonStyle.Operator"
+            android:text="÷" />
+
+        <!-- 2行目: (、)、%、× -->
+        <Button
+            android:id="@+id/btnLeftBracket"
+            style="@style/ButtonStyle.Function"
+            android:text="(" />
+
+        <Button
+            android:id="@+id/btnRightBracket"
+            style="@style/ButtonStyle.Function"
+            android:text=")" />
+
+        <Button
+            android:id="@+id/btnPercent"
+            style="@style/ButtonStyle.Function"
+            android:text="%" />
+
+        <Button
+            android:id="@+id/btnMultiply"
+            style="@style/ButtonStyle.Operator"
+            android:text="×" />
+
+        <!-- 3行目: 7、8、9、- -->
+        <Button
+            android:id="@+id/btn7"
+            style="@style/ButtonStyle.Number"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/ButtonStyle.Number"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/ButtonStyle.Number"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnMinus"
+            style="@style/ButtonStyle.Operator"
+            android:text="-" />
+
+        <!-- 4行目: 4、5、6、+ -->
+        <Button
+            android:id="@+id/btn4"
+            style="@style/ButtonStyle.Number"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/ButtonStyle.Number"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/ButtonStyle.Number"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btnPlus"
+            style="@style/ButtonStyle.Operator"
+            android:text="+" />
+
+        <!-- 5行目: 1、2、3、= -->
+        <Button
+            android:id="@+id/btn1"
+            style="@style/ButtonStyle.Number"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/ButtonStyle.Number"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/ButtonStyle.Number"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btnEquals"
+            style="@style/ButtonStyle.Equals"
+            android:layout_rowSpan="2"
+            android:text="=" />
+
+        <!-- 6行目: 0（跨3列）、. -->
+        <Button
+            android:id="@+id/btn0"
+            style="@style/ButtonStyle.Number"
+            android:layout_columnSpan="2"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnDecimal"
+            style="@style/ButtonStyle.Number"
+            android:text="." />
+
+    </GridLayout>
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Theme Colors -->
+    <color name="light_background">#F5F5F5</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_on_surface">#212121</color>
+    <color name="light_process_text">#757575</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_on_surface">#E1E1E1</color>
+    <color name="dark_process_text">#B3B3B3</color>
+
+    <!-- Button Colors -->
+    <color name="number_button_light">#FFFFFF</color>
+    <color name="number_button_dark">#2C2C2C</color>
+    <color name="operator_button">#C0D9EF</color>
+    <color name="function_button_light">#D0D0D0</color>
+    <color name="function_button_dark">#404040</color>
+
+    <!-- Common Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Default (Light) Theme Colors -->
+    <color name="calculator_background">@color/light_background</color>
+    <color name="display_background">@color/light_surface</color>
+    <color name="display_text_color">@color/light_on_surface</color>
+    <color name="process_text_color">@color/light_process_text</color>
+
+    <color name="number_button">@color/number_button_light</color>
+    <color name="function_button">@color/function_button_light</color>
+</resources>
